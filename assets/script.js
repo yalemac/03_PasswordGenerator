@@ -1,11 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",];
-var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",];
-var numbers = ["0","1","2","3","4","5","6","7","8","9",];
-var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+",];
+var lowerCaseLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",];
+var upperCaseLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",];
+var numericNum = ["0","1","2","3","4","5","6","7","8","9",];
+var specialCharactersOptions = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+",];
 var passwordLength = 8 || 128;
+var avaliable = [];
 
 
 function writePassword() {
@@ -17,42 +18,56 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  var length = prompt ("How many characters would you like your password to contain? Type a number between 8 and 128")
-  console.log(length)
-  if (length < 8) {
+  var passwordLength = prompt ("How many characters would you like your password to contain? Type a number between 8 and 128")
+  console.log(passwordLength)
+  if (passwordLength < 8) {
     alert ("Not long enough! Password length must be at least 8 characters")
 return null;
   }
-  if (length > 128) {
+  if (passwordLength > 128) {
     alert ("Too Long! Password length must be less that 128 characters")
 return null;
   };
 
-var lowerCase= parseInt (window.confirm ('Would you like to use lower case letters in your password? eg. abcdefghijklmnopqrstuvwxyz'));
+var lowerCase = window.confirm ('Would you like to use lower case letters in your password? eg. abcdefghijklmnopqrstuvwxyz');
   if (lowerCase == true) {
-  avalaible = avalaible.concat (lowerCase)
+    avaliable = avaliable.concat (lowerCaseLetters)
   } function lowerCase(){
-  return lowerCase[Math.floor(Math.random() * lowerCase.length)];
-  };
+  return lowerCase[Math.floor(Math.random()* lowerCase.length)];
+  }console.log(lowerCaseLetters);
 
-var upperCase= parseInt (window.confirm ('Would you like to use upper case letters in your password? eg. ABCDEFGHIJKLMNOPQRSTUVWXYZ'));
+var upperCase = window.confirm ('Would you like to use upper case letters in your password? eg. ABCDEFGHIJKLMNOPQRSTUVWXYZ');
   if (upperCase == true) {
-  avalaible = avalaible.concat (upperCase)
+    avaliable = avaliable.concat (upperCaseLetters)
   } function upperCase(){
   return upperCase[Math.floor(Math.random() * upperCase.length)];
-  };
+  }console.log(upperCaseLetters);
 
-  var numbers= parseInt (window.confirm ('Would you like to use numbers in your password? eg. 1234567890'));
-  if (numbers == true) {
-  avalaible = avalaible.concat (numbers)
-  } function numbers(){
-  return numbers[Math.floor(Math.random() * numbers.length)];
-  };
+  var numeric= window.confirm ('Would you like to use numbers in your password? eg. 1234567890');
+  if (numeric == true) {
+    avaliable = avaliable.concat (numericNum)
+  } function numeric(){
+  return numeric[Math.floor(Math.random() * numeric.length)];
+  }console.log(numericNum);
 
-  var specialCharacters= parseInt (window.confirm ('Would you like to use numbers in your password? eg. !@##$%^&*()-_=+'));
-  if (specialCharacters== true) {
-  avalaible = avalaible.concat (specialCharacters)
+  var specialCharacters= window.confirm ('Would you like to use numbers in your password? eg. !@##$%^&*()-_=+');
+  if (specialCharacters == true) {
+    avaliable = avaliable.concat (specialCharactersOptions)
   } function specialCharacters(){
   return specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-  };
+  }console.log(numericNum);
+
+  for (var i = 0; i < length; i++){
+  var password = getRandom(avaliable)
+  }
+
+  function getRandom(arr) {
+    var randIndex =Math.floor(math.random() * arr.length);
+    var randElement = arr[randIndex];
+
+    return randElement;
+  } console.log(randElement);
 } 
+
+
+
